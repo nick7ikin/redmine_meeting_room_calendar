@@ -325,10 +325,11 @@
                       isCurrentUser(event_author_id, calEvent.assigned_to_id);
                       $('input:checkbox').removeAttr('checked');
                       meeting_day = calEvent.start_date;
-                      if (isPastDay(calEvent.start)) {
-                          jAlert(langWarningEditPast, langInfo);
-                          return false;
-                      } else if (!(isCurrentUser(event_author_id, calEvent.assigned_to_id))) {
+//                     if (isPastDay(calEvent.start)) {
+//                          jAlert(langWarningEditPast, langInfo);
+//                          return false;
+//                      } else 
+                      if (!(isCurrentUser(event_author_id, calEvent.assigned_to_id))) {
                           console.log('It is an event created by another user');
                           return false;
                       } else {
@@ -369,10 +370,11 @@
                           return false;
                       }
                       meeting_day = $.fullCalendar.formatDate(date, 'yyyy-MM-dd');
-                      if (isPastDay(date)) {
-                          jAlert(langWarningCreatePast, langInfo);
-                          return false;
-                      } else {
+//                      if (isPastDay(date)) {
+//                          jAlert(langWarningCreatePast, langInfo);
+//                          return false;
+//                      } else 
+                      {
                           // clear field values
                           $('#event_id').val(0);
                           $('#meeting_date').val($.datepicker.formatDate(langDateFormat, date, $('#meeting_date').datepicker.settings))
@@ -550,10 +552,10 @@
               temp_meeting_day = meeting_day.replace(/\-/g, '/');
               var eventStart = new Date(temp_meeting_day + ' ' + start_time + ":00");
               var eventEnd = new Date(temp_meeting_day + ' ' + end_time + ":00");
-              if (isPastDay(eventStart)) {
-                  jAlert(langWarningUpdatePast, langInfo);
-                  return false;
-              }
+//              if (isPastDay(eventStart)) {
+//                  jAlert(langWarningUpdatePast, langInfo);
+//                  return false;
+//              }
               if (!(isOverlapping(eventStart, eventEnd))) {
                   if (validate()) {
                       console.log('No overlapping');
